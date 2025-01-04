@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tareas_gantts",
+  "info": {
+    "singularName": "tareas-gantt",
+    "pluralName": "tareas-gantts",
+    "displayName": "Tareas Gantt"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "progress": {
+      "type": "decimal"
+    },
+    "parent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tareas-gantt.tareas-gantt",
+      "inversedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tareas-gantt.tareas-gantt",
+      "mappedBy": "parent"
+    }
+  }
+}

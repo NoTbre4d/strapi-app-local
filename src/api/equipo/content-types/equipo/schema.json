@@ -1,0 +1,38 @@
+
+{
+  "kind": "collectionType",
+  "collectionName": "equipos",
+  "info": {
+    "singularName": "equipo",
+    "pluralName": "equipos",
+    "displayName": "Equipo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "criticidad": {
+      "type": "enumeration",
+      "enum": ["Important", "Critical", "Moderate", "Low"],
+      "required": true,
+      "default": "Important"
+    },
+    "tipos": {
+      "type": "string"
+    },
+    "codigoQR": {
+      "type": "string"
+    },
+    "grupos": {
+      "type": "string"
+    },
+    "equipoId": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

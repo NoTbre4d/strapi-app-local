@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orden_compras",
+  "info": {
+    "singularName": "orden-compra",
+    "pluralName": "orden-compras",
+    "displayName": "OrdenCompra"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fecha": {
+      "type": "date"
+    },
+    "oc_no": {
+      "type": "integer"
+    },
+    "proyecto": {
+      "type": "string"
+    },
+    "cotizacion": {
+      "type": "string"
+    },
+    "proveedor": {
+      "type": "string"
+    },
+    "informacion_bancaria": {
+      "type": "text"
+    },
+    "tipo_compra": {
+      "type": "string"
+    },
+    "moneda": {
+      "type": "string"
+    },
+    "fecha_planificada": {
+      "type": "date"
+    },
+    "direccion_entrega": {
+  "type": "text"
+},
+
+    "terminos_pago": {
+      "type": "string"
+    },
+    "incoterm": {
+      "type": "text"
+    },
+    "repuesto_ordens": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::repuesto-orden.repuesto-orden",
+      "mappedBy": "orden_compra"
+    }
+  }
+}

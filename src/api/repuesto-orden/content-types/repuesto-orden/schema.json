@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "repuesto_ordens",
+  "info": {
+    "singularName": "repuesto-orden",
+    "pluralName": "repuesto-ordens",
+    "displayName": "RepuestoOrden"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "codigo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "cantidad": {
+      "type": "integer"
+    },
+    "precio_unitario": {
+      "type": "decimal"
+    },
+    "descuento": {
+      "type": "decimal"
+    },
+    "impuestos": {
+      "type": "decimal"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "orden_compra": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::orden-compra.orden-compra",
+      "inversedBy": "repuesto_ordens"
+    }
+  }
+}

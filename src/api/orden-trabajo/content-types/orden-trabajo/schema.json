@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orden_trabajos",
+  "info": {
+    "singularName": "orden-trabajo",
+    "pluralName": "orden-trabajos",
+    "displayName": "Orden de Trabajo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "version": {
+      "type": "string"
+    },
+    "codigo": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "date"
+    },
+    "hora": {
+      "type": "string"
+    },
+    "numeroOT": {
+      "type": "string"
+    },
+    "equipo": {
+      "type": "string"
+    },
+    "serialEquipo": {
+      "type": "string"
+    },
+    "zona": {
+      "type": "string"
+    },
+    "nomenclaturaEquipo": {
+      "type": "string"
+    },
+    "especialidad": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "repuestos": {
+    "type": "json",
+    "required": false
+  },
+    "herramientas": {
+    "type": "json",
+    "required": false
+  },
+    "personal": {
+      "type": "json",
+      "required": false
+    },
+    "observaciones": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
