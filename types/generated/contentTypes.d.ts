@@ -681,6 +681,52 @@ export interface ApiTareasGanttTareasGantt extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTikectTikect extends Struct.CollectionTypeSchema {
+  collectionName: 'tikects';
+  info: {
+    displayName: 'tikects';
+    pluralName: 'tikects';
+    singularName: 'tikect';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tikect.tikect'
+    > &
+      Schema.Attribute.Private;
+    nombrePlanta: Schema.Attribute.Enumeration<
+      [
+        'planta 1',
+        'planta 2',
+        'planta 3 ',
+        'planta 4',
+        'planta 5',
+        'planta 6',
+        'planta 7',
+        'planta 8',
+        'planta 9',
+      ]
+    >;
+    prioridad: Schema.Attribute.Enumeration<['Alto', 'Medio', 'Bajo']>;
+    publishedAt: Schema.Attribute.DateTime;
+    ticketId: Schema.Attribute.String;
+    tipo: Schema.Attribute.Enumeration<['Recurrente', 'No Recurrente']>;
+    tipoTrabajo: Schema.Attribute.Enumeration<
+      ['Orden de trabajo ', 'Orden de compra']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1198,6 +1244,7 @@ declare module '@strapi/strapi' {
       'api::repuesto-orden.repuesto-orden': ApiRepuestoOrdenRepuestoOrden;
       'api::repuesto.repuesto': ApiRepuestoRepuesto;
       'api::tareas-gantt.tareas-gantt': ApiTareasGanttTareasGantt;
+      'api::tikect.tikect': ApiTikectTikect;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tikects",
+  "info": {
+    "singularName": "tikect",
+    "pluralName": "tikects",
+    "displayName": "tikects"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombrePlanta": {
+      "type": "enumeration",
+      "enum": [
+        "planta 1",
+        "planta 2",
+        "planta 3 ",
+        "planta 4",
+        "planta 5",
+        "planta 6",
+        "planta 7",
+        "planta 8",
+        "planta 9"
+      ]
+    },
+    "prioridad": {
+      "type": "enumeration",
+      "enum": [
+        "Alto",
+        "Medio",
+        "Bajo"
+      ]
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Recurrente",
+        "No Recurrente"
+      ]
+    },
+    "tipoTrabajo": {
+      "type": "enumeration",
+      "enum": [
+        "Orden de trabajo ",
+        "Orden de compra"
+      ]
+    },
+    "ticketId": {
+      "type": "string"
+    }
+  }
+}
