@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "herramientas",
+  "info": {
+    "singularName": "herramienta",
+    "pluralName": "herramientas",
+    "displayName": "Herramienta"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "criticidad": {
+      "type": "enumeration",
+      "enum": ["Important", "Critical", "Moderate", "Low"],
+      "required": true,
+      "default": "Important"
+    },
+    "tipos": {
+      "type": "string"
+    },
+    "codigoQR": {
+      "type": "string"
+    },
+    "grupos": {
+      "type": "string"
+    },
+    "equipoId": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

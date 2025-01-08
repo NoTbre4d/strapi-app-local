@@ -406,6 +406,43 @@ export interface ApiEquipoEquipo extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHerramientaHerramienta extends Struct.CollectionTypeSchema {
+  collectionName: 'herramientas';
+  info: {
+    displayName: 'Herramienta';
+    pluralName: 'herramientas';
+    singularName: 'herramienta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    codigoQR: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    criticidad: Schema.Attribute.Enumeration<
+      ['Important', 'Critical', 'Moderate', 'Low']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Important'>;
+    equipoId: Schema.Attribute.String & Schema.Attribute.Unique;
+    grupos: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::herramienta.herramienta'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    tipos: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOrdenCompraOrdenCompra extends Struct.CollectionTypeSchema {
   collectionName: 'orden_compras';
   info: {
@@ -561,6 +598,43 @@ export interface ApiRepuestoOrdenRepuestoOrden
     precio_unitario: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     total: Schema.Attribute.Decimal;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRepuestoRepuesto extends Struct.CollectionTypeSchema {
+  collectionName: 'repuestos';
+  info: {
+    displayName: 'repuestos';
+    pluralName: 'repuestos';
+    singularName: 'repuesto';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    codigoQR: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    criticidad: Schema.Attribute.Enumeration<
+      ['Important', 'Critical', 'Moderate', 'Low']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Important'>;
+    equipoId: Schema.Attribute.String & Schema.Attribute.Unique;
+    grupos: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::repuesto.repuesto'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    tipos: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1117,10 +1191,12 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::equipo.equipo': ApiEquipoEquipo;
+      'api::herramienta.herramienta': ApiHerramientaHerramienta;
       'api::orden-compra.orden-compra': ApiOrdenCompraOrdenCompra;
       'api::orden-trabajo.orden-trabajo': ApiOrdenTrabajoOrdenTrabajo;
       'api::ordenes-trabajo.ordenes-trabajo': ApiOrdenesTrabajoOrdenesTrabajo;
       'api::repuesto-orden.repuesto-orden': ApiRepuestoOrdenRepuestoOrden;
+      'api::repuesto.repuesto': ApiRepuestoRepuesto;
       'api::tareas-gantt.tareas-gantt': ApiTareasGanttTareasGantt;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
