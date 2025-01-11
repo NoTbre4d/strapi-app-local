@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tikect",
     "pluralName": "tikects",
-    "displayName": "tikects"
+    "displayName": "tikects",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,15 +15,15 @@
     "nombrePlanta": {
       "type": "enumeration",
       "enum": [
-        "planta 1",
-        "planta 2",
-        "planta 3 ",
-        "planta 4",
-        "planta 5",
-        "planta 6",
-        "planta 7",
-        "planta 8",
-        "planta 9"
+        "OldToluViejo",
+        "Bayunca",
+        "GonzaEnergy",
+        "Salchakras",
+        "SanPedro",
+        "LaVillaSolar",
+        "Solhuaqui",
+        "Sosantonio",
+        "Produlesti"
       ]
     },
     "prioridad": {

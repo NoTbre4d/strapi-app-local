@@ -731,6 +731,7 @@ export interface ApiTareasGanttTareasGantt extends Struct.CollectionTypeSchema {
 export interface ApiTikectTikect extends Struct.CollectionTypeSchema {
   collectionName: 'tikects';
   info: {
+    description: '';
     displayName: 'tikects';
     pluralName: 'tikects';
     singularName: 'tikect';
@@ -750,15 +751,15 @@ export interface ApiTikectTikect extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     nombrePlanta: Schema.Attribute.Enumeration<
       [
-        'planta 1',
-        'planta 2',
-        'planta 3 ',
-        'planta 4',
-        'planta 5',
-        'planta 6',
-        'planta 7',
-        'planta 8',
-        'planta 9',
+        'OldToluViejo',
+        'Bayunca',
+        'GonzaEnergy',
+        'Salchakras',
+        'SanPedro',
+        'LaVillaSolar',
+        'Solhuaqui',
+        'Sosantonio',
+        'Produlesti',
       ]
     >;
     prioridad: Schema.Attribute.Enumeration<['Alto', 'Medio', 'Bajo']>;
