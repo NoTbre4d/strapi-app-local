@@ -471,6 +471,10 @@ export interface ApiOrdenCompraOrdenCompra extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     moneda: Schema.Attribute.String;
     oc_no: Schema.Attribute.Integer;
+    ordenes_compras: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ordenes-compra.ordenes-compra'
+    >;
     proveedor: Schema.Attribute.String;
     proyecto: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -529,6 +533,43 @@ export interface ApiOrdenTrabajoOrdenTrabajo
   };
 }
 
+export interface ApiOrdenesCompraOrdenesCompra
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'ordenes_compras';
+  info: {
+    displayName: 'ordenes-compras';
+    pluralName: 'ordenes-compras';
+    singularName: 'ordenes-compra';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    direccionEntrega: Schema.Attribute.String;
+    fechaPlanificada: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ordenes-compra.ordenes-compra'
+    > &
+      Schema.Attribute.Private;
+    moneda: Schema.Attribute.String;
+    orden_compra: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::orden-compra.orden-compra'
+    >;
+    proveedor: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    tipoCompra: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOrdenesTrabajoOrdenesTrabajo
   extends Struct.CollectionTypeSchema {
   collectionName: 'ordenes_trabajos';
@@ -557,6 +598,10 @@ export interface ApiOrdenesTrabajoOrdenesTrabajo
       Schema.Attribute.Private;
     prioridad: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    tareas_gantts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tareas-gantt.tareas-gantt'
+    >;
     tipoTrabajo: Schema.Attribute.String;
     titulo: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -644,6 +689,7 @@ export interface ApiRepuestoRepuesto extends Struct.CollectionTypeSchema {
 export interface ApiTareasGanttTareasGantt extends Struct.CollectionTypeSchema {
   collectionName: 'tareas_gantts';
   info: {
+    description: '';
     displayName: 'Tareas Gantt';
     pluralName: 'tareas-gantts';
     singularName: 'tareas-gantt';
@@ -1240,6 +1286,7 @@ declare module '@strapi/strapi' {
       'api::herramienta.herramienta': ApiHerramientaHerramienta;
       'api::orden-compra.orden-compra': ApiOrdenCompraOrdenCompra;
       'api::orden-trabajo.orden-trabajo': ApiOrdenTrabajoOrdenTrabajo;
+      'api::ordenes-compra.ordenes-compra': ApiOrdenesCompraOrdenesCompra;
       'api::ordenes-trabajo.ordenes-trabajo': ApiOrdenesTrabajoOrdenesTrabajo;
       'api::repuesto-orden.repuesto-orden': ApiRepuestoOrdenRepuestoOrden;
       'api::repuesto.repuesto': ApiRepuestoRepuesto;

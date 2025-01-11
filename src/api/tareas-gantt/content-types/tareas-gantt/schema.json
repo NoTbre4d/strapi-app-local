@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tareas-gantt",
     "pluralName": "tareas-gantts",
-    "displayName": "Tareas Gantt"
+    "displayName": "Tareas Gantt",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

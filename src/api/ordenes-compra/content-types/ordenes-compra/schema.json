@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ordenes_compras",
+  "info": {
+    "singularName": "ordenes-compra",
+    "pluralName": "ordenes-compras",
+    "displayName": "ordenes-compras"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "proveedor": {
+      "type": "string"
+    },
+    "tipoCompra": {
+      "type": "string"
+    },
+    "moneda": {
+      "type": "string"
+    },
+    "fechaPlanificada": {
+      "type": "date"
+    },
+    "direccionEntrega": {
+      "type": "string"
+    },
+    "orden_compra": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::orden-compra.orden-compra",
+      "inversedBy": "ordenes_compras"
+    }
+  }
+}

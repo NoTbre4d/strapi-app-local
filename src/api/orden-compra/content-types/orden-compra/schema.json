@@ -39,9 +39,8 @@
       "type": "date"
     },
     "direccion_entrega": {
-  "type": "text"
-},
-
+      "type": "text"
+    },
     "terminos_pago": {
       "type": "string"
     },
@@ -52,6 +51,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::repuesto-orden.repuesto-orden",
+      "mappedBy": "orden_compra"
+    },
+    "ordenes_compras": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ordenes-compra.ordenes-compra",
       "mappedBy": "orden_compra"
     }
   }

@@ -32,6 +32,11 @@
     },
     "equipo": {
       "type": "string"
+    },
+    "tareas_gantts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tareas-gantt.tareas-gantt"
     }
   }
 }
