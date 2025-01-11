@@ -37,6 +37,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tikect.tikect"
+    },
+    "orden_trabajo": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::orden-trabajo.orden-trabajo"
     }
   }
 }
