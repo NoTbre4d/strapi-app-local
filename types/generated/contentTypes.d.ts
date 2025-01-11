@@ -602,6 +602,7 @@ export interface ApiOrdenesTrabajoOrdenesTrabajo
       'oneToMany',
       'api::tareas-gantt.tareas-gantt'
     >;
+    ticketReferencias: Schema.Attribute.String;
     tipoTrabajo: Schema.Attribute.String;
     titulo: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;

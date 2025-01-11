@@ -37,6 +37,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tareas-gantt.tareas-gantt"
+    },
+    "ticketReferencias": {
+      "type": "string"
     }
   }
 }
