@@ -596,6 +596,10 @@ export interface ApiOrdenesTrabajoOrdenesTrabajo
       'api::ordenes-trabajo.ordenes-trabajo'
     > &
       Schema.Attribute.Private;
+    orden_de_trabajos: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::orden-trabajo.orden-trabajo'
+    >;
     prioridad: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     tareas_gantts: Schema.Attribute.Relation<

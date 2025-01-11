@@ -40,6 +40,11 @@
     },
     "ticketReferencias": {
       "type": "string"
+    },
+    "orden_de_trabajos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::orden-trabajo.orden-trabajo"
     }
   }
 }
