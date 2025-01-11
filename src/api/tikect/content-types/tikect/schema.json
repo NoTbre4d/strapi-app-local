@@ -50,6 +50,11 @@
     },
     "ticketId": {
       "type": "string"
+    },
+    "orden_trabajo": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::orden-trabajo.orden-trabajo"
     }
   }
 }

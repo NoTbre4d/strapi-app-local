@@ -33,18 +33,10 @@
     "equipo": {
       "type": "string"
     },
-    "tareas_gantts": {
+    "tiket": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tareas-gantt.tareas-gantt"
-    },
-    "ticketReferencias": {
-      "type": "string"
-    },
-    "orden_de_trabajos": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::orden-trabajo.orden-trabajo"
+      "relation": "oneToOne",
+      "target": "api::tikect.tikect"
     }
   }
 }

@@ -45,13 +45,13 @@
       "type": "text"
     },
     "repuestos": {
-    "type": "json",
-    "required": false
-  },
+      "type": "json",
+      "required": false
+    },
     "herramientas": {
-    "type": "json",
-    "required": false
-  },
+      "type": "json",
+      "required": false
+    },
     "personal": {
       "type": "json",
       "required": false
@@ -59,6 +59,11 @@
     "observaciones": {
       "type": "text",
       "required": false
+    },
+    "tiket": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tikect.tikect"
     }
   }
 }
