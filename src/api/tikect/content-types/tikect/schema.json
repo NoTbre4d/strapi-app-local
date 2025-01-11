@@ -44,8 +44,7 @@
     "tipoTrabajo": {
       "type": "enumeration",
       "enum": [
-        "Orden de trabajo ",
-        "Orden de compra"
+        "Orden de trabajo"
       ]
     },
     "ticketId": {

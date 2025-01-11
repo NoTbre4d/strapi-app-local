@@ -521,10 +521,15 @@ export interface ApiOrdenTrabajoOrdenTrabajo
     nomenclaturaEquipo: Schema.Attribute.String;
     numeroOT: Schema.Attribute.String;
     observaciones: Schema.Attribute.Text;
+    ordenes_trabajo: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::ordenes-trabajo.ordenes-trabajo'
+    >;
     personal: Schema.Attribute.JSON;
     publishedAt: Schema.Attribute.DateTime;
     repuestos: Schema.Attribute.JSON;
     serialEquipo: Schema.Attribute.String;
+    tiket: Schema.Attribute.Relation<'oneToOne', 'api::tikect.tikect'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -596,17 +601,13 @@ export interface ApiOrdenesTrabajoOrdenesTrabajo
       'api::ordenes-trabajo.ordenes-trabajo'
     > &
       Schema.Attribute.Private;
-    orden_de_trabajos: Schema.Attribute.Relation<
-      'oneToMany',
+    orden_trabajo: Schema.Attribute.Relation<
+      'oneToOne',
       'api::orden-trabajo.orden-trabajo'
     >;
     prioridad: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    tareas_gantts: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::tareas-gantt.tareas-gantt'
-    >;
-    ticketReferencias: Schema.Attribute.String;
+    tiket: Schema.Attribute.Relation<'oneToOne', 'api::tikect.tikect'>;
     tipoTrabajo: Schema.Attribute.String;
     titulo: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -766,13 +767,15 @@ export interface ApiTikectTikect extends Struct.CollectionTypeSchema {
         'Produlesti',
       ]
     >;
+    orden_trabajo: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::orden-trabajo.orden-trabajo'
+    >;
     prioridad: Schema.Attribute.Enumeration<['Alto', 'Medio', 'Bajo']>;
     publishedAt: Schema.Attribute.DateTime;
     ticketId: Schema.Attribute.String;
     tipo: Schema.Attribute.Enumeration<['Recurrente', 'No Recurrente']>;
-    tipoTrabajo: Schema.Attribute.Enumeration<
-      ['Orden de trabajo ', 'Orden de compra']
-    >;
+    tipoTrabajo: Schema.Attribute.Enumeration<['Orden de trabajo']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
