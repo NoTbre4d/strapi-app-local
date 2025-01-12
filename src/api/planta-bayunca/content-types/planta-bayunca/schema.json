@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "planta_bayuncas",
+  "info": {
+    "singularName": "planta-bayunca",
+    "pluralName": "planta-bayuncas",
+    "displayName": "plantaBayunca"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "equiposBayunca": {
+      "type": "string"
+    }
+  }
+}

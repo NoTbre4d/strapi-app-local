@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_bayuncas",
+  "info": {
+    "displayName": "Bayunca",
+    "icon": "store"
+  },
+  "options": {},
+  "attributes": {
+    "nombrePlanta": {
+      "type": "string"
+    }
+  }
+}

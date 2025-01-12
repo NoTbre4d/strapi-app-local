@@ -1,5 +1,34 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface PlantaBayuncaEquiposBayunca extends Struct.ComponentSchema {
+  collectionName: 'components_planta_bayunca_equipos_bayuncas';
+  info: {
+    description: '';
+    displayName: 'equiposBayunca';
+  };
+  attributes: {
+    codigoQR: Schema.Attribute.String;
+    criticidad: Schema.Attribute.Enumeration<
+      ['Low', 'Important', 'Moderate', 'Critical']
+    >;
+    equiposId: Schema.Attribute.String;
+    grupos: Schema.Attribute.String;
+    nombre: Schema.Attribute.String;
+    Tipos: Schema.Attribute.String;
+  };
+}
+
+export interface SharedBayunca extends Struct.ComponentSchema {
+  collectionName: 'components_shared_bayuncas';
+  info: {
+    displayName: 'Bayunca';
+    icon: 'store';
+  };
+  attributes: {
+    nombrePlanta: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +94,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'planta-bayunca.equipos-bayunca': PlantaBayuncaEquiposBayunca;
+      'shared.bayunca': SharedBayunca;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

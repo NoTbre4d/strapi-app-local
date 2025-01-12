@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_planta_bayunca_equipos_bayuncas",
+  "info": {
+    "displayName": "equiposBayunca",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "criticidad": {
+      "type": "enumeration",
+      "enum": [
+        "Low",
+        "Important",
+        "Moderate",
+        "Critical"
+      ]
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "Tipos": {
+      "type": "string"
+    },
+    "codigoQR": {
+      "type": "string"
+    },
+    "equiposId": {
+      "type": "string"
+    },
+    "grupos": {
+      "type": "string"
+    }
+  }
+}

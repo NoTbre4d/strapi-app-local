@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "admins",
+  "info": {
+    "singularName": "admin",
+    "pluralName": "admins",
+    "displayName": "admin"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "equipos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::equipo.equipo"
+    },
+    "herramientas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::herramienta.herramienta"
+    },
+    "orden_compras": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::orden-compra.orden-compra"
+    },
+    "orden_de_trabajos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::orden-trabajo.orden-trabajo"
+    },
+    "ordenes_compras": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ordenes-compra.ordenes-compra"
+    },
+    "ordenes_trabajos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ordenes-trabajo.ordenes-trabajo"
+    },
+    "repuesto_ordens": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::repuesto-orden.repuesto-orden"
+    },
+    "repuestos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::repuesto.repuesto"
+    },
+    "tareas_gantts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tareas-gantt.tareas-gantt"
+    },
+    "tikects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tikect.tikect"
+    }
+  }
+}

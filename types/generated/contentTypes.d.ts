@@ -369,6 +369,61 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAdminAdmin extends Struct.CollectionTypeSchema {
+  collectionName: 'admins';
+  info: {
+    displayName: 'admin';
+    pluralName: 'admins';
+    singularName: 'admin';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    equipos: Schema.Attribute.Relation<'oneToMany', 'api::equipo.equipo'>;
+    herramientas: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::herramienta.herramienta'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::admin.admin'> &
+      Schema.Attribute.Private;
+    orden_compras: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::orden-compra.orden-compra'
+    >;
+    orden_de_trabajos: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::orden-trabajo.orden-trabajo'
+    >;
+    ordenes_compras: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ordenes-compra.ordenes-compra'
+    >;
+    ordenes_trabajos: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ordenes-trabajo.ordenes-trabajo'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    repuesto_ordens: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::repuesto-orden.repuesto-orden'
+    >;
+    repuestos: Schema.Attribute.Relation<'oneToMany', 'api::repuesto.repuesto'>;
+    tareas_gantts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tareas-gantt.tareas-gantt'
+    >;
+    tikects: Schema.Attribute.Relation<'oneToMany', 'api::tikect.tikect'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEquipoEquipo extends Struct.CollectionTypeSchema {
   collectionName: 'equipos';
   info: {
@@ -610,6 +665,35 @@ export interface ApiOrdenesTrabajoOrdenesTrabajo
     tiket: Schema.Attribute.Relation<'oneToOne', 'api::tikect.tikect'>;
     tipoTrabajo: Schema.Attribute.String;
     titulo: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPlantaBayuncaPlantaBayunca
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'planta_bayuncas';
+  info: {
+    displayName: 'plantaBayunca';
+    pluralName: 'planta-bayuncas';
+    singularName: 'planta-bayunca';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    equiposBayunca: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::planta-bayunca.planta-bayunca'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1291,12 +1375,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::admin.admin': ApiAdminAdmin;
       'api::equipo.equipo': ApiEquipoEquipo;
       'api::herramienta.herramienta': ApiHerramientaHerramienta;
       'api::orden-compra.orden-compra': ApiOrdenCompraOrdenCompra;
       'api::orden-trabajo.orden-trabajo': ApiOrdenTrabajoOrdenTrabajo;
       'api::ordenes-compra.ordenes-compra': ApiOrdenesCompraOrdenesCompra;
       'api::ordenes-trabajo.ordenes-trabajo': ApiOrdenesTrabajoOrdenesTrabajo;
+      'api::planta-bayunca.planta-bayunca': ApiPlantaBayuncaPlantaBayunca;
       'api::repuesto-orden.repuesto-orden': ApiRepuestoOrdenRepuestoOrden;
       'api::repuesto.repuesto': ApiRepuestoRepuesto;
       'api::tareas-gantt.tareas-gantt': ApiTareasGanttTareasGantt;
