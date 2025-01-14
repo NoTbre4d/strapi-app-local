@@ -1,7 +1,20 @@
 module.exports = [
   'strapi::logger',
   'strapi::errors',
-  'strapi::security',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'http://*', 'https://*'],
+          'img-src': ["'self'", 'data:', 'blob:', 'http://*', 'https://*'],
+          'media-src': ["'self'", 'data:', 'blob:', 'http://*', 'https://*'],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
   {
     name: 'strapi::cors',
     config: {
@@ -10,14 +23,16 @@ module.exports = [
       headers: [
         'Content-Type',
         'Authorization',
-        'X-Frame-Options',
-        'Access-Control-Allow-Headers',
         'Origin',
         'Accept',
+        'Cache-Control',
         'Pragma',
-        'Cache-Control'
+        'X-Requested-With'
       ],
-      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS']
+      exposedHeaders: ['Content-Range', 'X-Total-Count'],
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
+      credentials: true,
+      maxAge: 86400
     }
   },
   'strapi::poweredBy',
