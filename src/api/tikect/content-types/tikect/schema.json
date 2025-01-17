@@ -29,9 +29,9 @@
     "prioridad": {
       "type": "enumeration",
       "enum": [
-        "Alto",
-        "Medio",
-        "Bajo"
+        "Alta",
+        "Media",
+        "Baja"
       ]
     },
     "tipo": {
