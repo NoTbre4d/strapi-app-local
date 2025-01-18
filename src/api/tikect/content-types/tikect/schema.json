@@ -62,6 +62,14 @@
         "Correctivo",
         "Otros"
       ]
+    },
+    "estado": {
+      "type": "enumeration",
+      "enum": [
+        "Abierto",
+        "En proceso",
+        "Cerrado"
+      ]
     }
   }
 }

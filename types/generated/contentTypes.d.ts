@@ -748,6 +748,7 @@ export interface ApiTikectTikect extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    estado: Schema.Attribute.Enumeration<['Abierto', 'En proceso', 'Cerrado']>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -771,7 +772,7 @@ export interface ApiTikectTikect extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::orden-trabajo.orden-trabajo'
     >;
-    prioridad: Schema.Attribute.Enumeration<['Alto', 'Medio', 'Bajo']>;
+    prioridad: Schema.Attribute.Enumeration<['Alta', 'Media', 'Baja']>;
     publishedAt: Schema.Attribute.DateTime;
     ticketId: Schema.Attribute.String;
     tipo: Schema.Attribute.Enumeration<['Recurrente', 'No Recurrente']>;
